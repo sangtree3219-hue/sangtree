@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>랩티 여행 계획 보고</title>
+<style>
+  :root{
+    --navy:#1f3a5f;
+    --blue:#2f6fb0;
+    --sky:#eaf2fb;
+    --line:#e3e8ef;
+    --gray:#5b6470;
+    --light:#f7f9fc;
+    --accent:#e8624a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    color:#222; margin:0; background:#eef1f5; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:900px; margin:32px auto; background:#fff; padding:56px 60px;
+    box-shadow:0 4px 24px rgba(0,0,0,.08); border-radius:10px;
+  }
+  header{ border-bottom:3px solid var(--navy); padding-bottom:20px; margin-bottom:36px; }
+  header .eyebrow{ color:var(--blue); font-weight:700; letter-spacing:2px; font-size:13px; }
+  header h1{ margin:6px 0 4px; font-size:30px; color:var(--navy); letter-spacing:-1px; }
+  header .sub{ color:var(--gray); font-size:14px; }
+
+  h2{
+    font-size:20px; color:var(--navy); margin:44px 0 16px;
+    padding-left:14px; border-left:5px solid var(--blue); letter-spacing:-.5px;
+  }
+  h3{ font-size:16px; color:var(--blue); margin:24px 0 10px; }
+
+  table{ width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px; }
+  th,td{ border:1px solid var(--line); padding:11px 14px; text-align:left; }
+  thead th{ background:var(--navy); color:#fff; font-weight:600; }
+  tbody th{ background:var(--sky); color:var(--navy); font-weight:600; width:34%; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  tr.total td, tr.total th{ background:var(--light); font-weight:700; color:var(--navy); }
+
+  .cards{ display:flex; gap:18px; margin-top:18px; flex-wrap:wrap; }
+  .card{
+    flex:1; min-width:260px; border:1px solid var(--line); border-radius:10px;
+    overflow:hidden; background:#fff;
+  }
+  .card .cap{ background:var(--sky); color:var(--navy); font-weight:700; padding:12px 16px; font-size:15px; }
+  .card.bus .cap{ background:#fdeee9; color:var(--accent); }
+  .card .body{ padding:16px 18px; }
+  .card .price{ font-size:24px; font-weight:800; color:var(--navy); margin:4px 0 2px; }
+  .card.bus .price{ color:var(--accent); }
+  .card .note{ font-size:13px; color:var(--gray); }
+  .card ul{ margin:10px 0 0; padding-left:18px; font-size:13.5px; color:#444; }
+  .card li{ margin:3px 0; }
+
+  .timeline{ margin-top:10px; }
+  .day-label{
+    display:inline-block; background:var(--navy); color:#fff; font-weight:700;
+    padding:5px 14px; border-radius:20px; font-size:13px; margin:18px 0 10px;
+  }
+  .day-label.d2{ background:var(--blue); }
+  .slot{ display:flex; gap:16px; padding:10px 0; border-bottom:1px dashed var(--line); }
+  .slot:last-child{ border-bottom:none; }
+  .slot .time{ flex:0 0 130px; font-weight:700; color:var(--blue); font-variant-numeric:tabular-nums; }
+  .slot .act{ flex:1; }
+
+  .callout{
+    background:var(--sky); border:1px solid #d4e2f4; border-radius:8px;
+    padding:14px 18px; font-size:14px; color:var(--navy); margin:16px 0;
+  }
+  .callout b{ color:var(--blue); }
+  .muted{ color:var(--gray); font-size:13px; }
+
+  footer{ margin-top:48px; padding-top:18px; border-top:1px solid var(--line); color:var(--gray); font-size:12.5px; text-align:right; }
+
+  @media print{
+    body{ background:#fff; }
+    .page{ box-shadow:none; margin:0; max-width:none; border-radius:0; padding:30px 36px; }
+    h2{ page-break-after:avoid; }
+    .card,.slot{ page-break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="eyebrow">MT · 여행 기획안</div>
+    <h1>랩티 여행 계획 보고</h1>
+    <div class="sub">일정 · 8. 13.(목) ~ 8. 14.(금) &nbsp;|&nbsp; 1박 2일</div>
+  </header>
+
+  <!-- 1. 교통 -->
+  <h2>1. 교통</h2>
+  <p class="muted">렌트카 / 버스 두 가지 안을 비교 검토했습니다. 인원·예산·운전 부담을 고려해 선택할 수 있습니다.</p>
+
+  <h3>안 ① 렌트카 (10인승 · 카니발 / 스타렉스 등)</h3>
+  <table>
+    <thead>
+      <tr><th>항목</th><th>산출 근거</th><th style="text-align:right;">금액</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>렌트비</th><td>1박 2일 기준 (10인승)</td><td class="num">100,000원</td></tr>
+      <tr><th>주행요금</th><td>왕복 약 360km × 350원/km</td><td class="num">126,000원</td></tr>
+      <tr><th>톨비</th><td>편도 약 9,000원 × 2 (왕복)</td><td class="num">18,000원</td></tr>
+      <tr class="total"><th>1대 합계</th><td>차량 1대 기준</td><td class="num">244,000원</td></tr>
+      <tr class="total"><th>총 예상 (2대)</th><td>2대 렌트 시</td><td class="num">약 500,000원</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">※ 차량 1대당 약 25만 원 전후, 2대 운영 시 약 50만 원 예상</p>
+
+  <h3>안 ② 전세버스 (25인승)</h3>
+  <table>
+    <thead>
+      <tr><th>항목</th><th>내용</th><th style="text-align:right;">금액</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>차종</th><td>25인승 미니버스 / 중형</td><td class="num">—</td></tr>
+      <tr><th>견적 경로</th><td>'올버스(all bus)' 앱 견적 기준</td><td class="num">—</td></tr>
+      <tr class="total"><th>총 예상</th><td>1박 2일 기준</td><td class="num">약 900,000 ~ 1,000,000원</td></tr>
+    </tbody>
+  </table>
+
+  <h3>교통편 비교 요약</h3>
+  <div class="cards">
+    <div class="card">
+      <div class="cap">① 렌트카 2대</div>
+      <div class="body">
+        <div class="price">약 50만 원</div>
+        <div class="note">2대 합계 / 주행·톨비 포함</div>
+        <ul>
+          <li>비용 부담이 가장 적음</li>
+          <li>일정·동선 자유로움</li>
+          <li>운전자 2명 필요, 운전 피로</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card bus">
+      <div class="cap">② 전세버스</div>
+      <div class="body">
+        <div class="price">약 90~100만 원</div>
+        <div class="note">25인승 1대 / 기사 포함</div>
+        <ul>
+          <li>전원 한 차량 이동, 편리</li>
+          <li>운전 부담 없음 · 음주 자유</li>
+          <li>비용이 상대적으로 높음</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>검토 의견 :</b> 인원이 적고 예산이 우선이면 <b>렌트카 2대(약 50만 원)</b>,
+    인원이 많거나 이동 편의·안전을 우선하면 <b>전세버스</b>가 적합합니다.
+  </div>
+
+  <!-- 2. 숙박 -->
+  <h2>2. 숙박</h2>
+  <div class="callout">
+    숙박 관련 상세 내용은 <b>별도 PPT 자료</b>를 참고해 주시기 바랍니다.
+  </div>
+
+  <!-- 3. 일과 -->
+  <h2>3. 일과 (일정)</h2>
+  <div class="timeline">
+
+    <div class="day-label">DAY 1 · 8. 13.(목)</div>
+    <div class="slot"><div class="time">14:00 ~ 18:00</div><div class="act">장보기 및 숙소 도착</div></div>
+    <div class="slot"><div class="time">18:00 ~ 19:30</div><div class="act">바베큐 파티</div></div>
+    <div class="slot"><div class="time">20:00 ~</div><div class="act">컨텐츠 (레크리에이션 / 자유 시간)</div></div>
+
+    <div class="day-label d2">DAY 2 · 8. 14.(금)</div>
+    <div class="slot"><div class="time">08:00 ~ 10:00</div><div class="act">아침 식사 및 정리</div></div>
+    <div class="slot"><div class="time">11:00 ~ 13:00</div><div class="act">고려대 복귀 및 점심 식사</div></div>
+
+  </div>
+
+  <footer>
+    작성일 2026. 6. 2. &nbsp;·&nbsp; 랩티 여행 계획 보고
+  </footer>
+
+</div>
+</body>
+</html>
