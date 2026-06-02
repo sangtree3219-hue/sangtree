@@ -74,6 +74,48 @@
   .callout b{ color:var(--blue); }
   .muted{ color:var(--gray); font-size:13px; }
 
+  /* 앱 캡처 재현(mockup) */
+  figure.shot{ margin:20px 0 8px; }
+  figure.shot figcaption{ font-size:12.5px; color:var(--gray); margin-top:8px; text-align:center; }
+  .phone{
+    max-width:340px; margin:0 auto; border:1px solid #d7dde6; border-radius:22px;
+    background:#fff; box-shadow:0 8px 28px rgba(0,0,0,.10); overflow:hidden;
+  }
+  .phone .bar{
+    display:flex; align-items:center; gap:8px; padding:12px 16px;
+    border-bottom:1px solid var(--line); font-weight:700; color:var(--navy); font-size:14px;
+  }
+  .phone .bar .back{ color:#9aa3ae; font-weight:400; }
+  .phone .bar .seg{ margin-left:auto; font-size:11px; }
+  .phone .bar .seg b{ background:var(--blue); color:#fff; padding:3px 9px; border-radius:12px; }
+  .phone .bar .seg span{ color:#9aa3ae; padding:3px 6px; }
+  .trip{ padding:12px 16px; border-bottom:1px solid var(--line); font-size:13px; }
+  .trip .row{ display:flex; gap:8px; align-items:center; margin:3px 0; }
+  .trip .tag{ background:var(--sky); color:var(--blue); font-size:11px; font-weight:700; padding:2px 7px; border-radius:6px; }
+  .trip .loc{ font-weight:700; color:#222; }
+  .trip .date{ color:#444; }
+  .vrow{ display:flex; align-items:center; gap:10px; padding:11px 16px; border-bottom:1px solid var(--line); }
+  .vrow:last-child{ border-bottom:none; }
+  .vrow .ico{ width:42px; height:30px; border-radius:6px; background:#eef1f5; flex:0 0 42px; }
+  .vrow .vinfo{ flex:1; }
+  .vrow .vname{ font-weight:700; font-size:13.5px; color:#222; }
+  .vrow .vkm{ font-size:11px; color:#9aa3ae; }
+  .vrow .vprice{ text-align:right; }
+  .vrow .vprice .p{ font-weight:800; color:var(--navy); font-size:14px; }
+  .vrow .vprice .o{ font-size:11px; color:#b9c0c9; text-decoration:line-through; }
+  .vrow .vprice .dc{ color:var(--accent); font-weight:700; font-size:11px; }
+  .qrow{ display:flex; align-items:center; gap:11px; padding:12px 16px; border-bottom:1px solid var(--line); }
+  .qrow:last-child{ border-bottom:none; }
+  .qrow .badge{ position:relative; }
+  .qrow .badge .ph{ width:46px; height:46px; border-radius:8px; background:#dfe5ec; }
+  .qrow .badge .pref{ position:absolute; top:-4px; left:-4px; background:#4caf7d; color:#fff; font-size:9px; font-weight:700; padding:1px 5px; border-radius:5px; }
+  .qrow .qinfo{ flex:1; }
+  .qrow .qname{ font-weight:700; font-size:14px; color:#222; }
+  .qrow .qstar{ font-size:11.5px; color:#f5a623; font-weight:700; }
+  .qrow .qstar span{ color:#9aa3ae; font-weight:400; }
+  .qrow .qspec{ font-size:11px; color:#9aa3ae; margin-top:2px; }
+  .qrow .qprice{ font-weight:800; color:var(--accent); font-size:15px; white-space:nowrap; }
+
   footer{ margin-top:48px; padding-top:18px; border-top:1px solid var(--line); color:var(--gray); font-size:12.5px; text-align:right; }
 
   @media print{
@@ -112,6 +154,32 @@
   </table>
   <p class="muted">※ 차량 1대당 약 25만 원 전후, 2대 운영 시 약 50만 원 예상</p>
 
+  <figure class="shot">
+    <div class="phone">
+      <div class="bar"><span class="back">‹</span> 가지러 가기 <span class="seg"><b>왕복</b><span>편도</span></span></div>
+      <div class="trip">
+        <div class="row"><span class="tag">대여·반납</span><span class="loc">청량리 현대코아 (서관)</span></div>
+        <div class="row"><span class="date">8. 13.(목) 15:00 ~ 8. 14.(금) 15:00</span></div>
+      </div>
+      <div class="vrow">
+        <div class="ico"></div>
+        <div class="vinfo"><div class="vname">더 뉴 카니발 하이브리드</div><div class="vkm">0~280원/km</div></div>
+        <div class="vprice"><div class="p">119,900원</div><div><span class="dc">65%</span> <span class="o">342,560원</span></div></div>
+      </div>
+      <div class="vrow">
+        <div class="ico"></div>
+        <div class="vinfo"><div class="vname">스타리아</div><div class="vkm">0~350원/km</div></div>
+        <div class="vprice"><div class="p">105,420원</div><div><span class="dc">65%</span> <span class="o">301,190원</span></div></div>
+      </div>
+      <div class="vrow">
+        <div class="ico"></div>
+        <div class="vinfo"><div class="vname">카니발</div><div class="vkm">0~350원/km</div></div>
+        <div class="vprice"><div class="p">105,420원</div><div><span class="dc">65%</span> <span class="o">301,190원</span></div></div>
+      </div>
+    </div>
+    <figcaption>▲ 렌트카 앱 견적 화면 (청량리 현대코아 / 지하주차장, 총결제요금 기준)</figcaption>
+  </figure>
+
   <h3>안 ② 전세버스 (25인승)</h3>
   <table>
     <thead>
@@ -123,6 +191,38 @@
       <tr class="total"><th>총 예상</th><td>1박 2일 기준</td><td class="num">약 900,000 ~ 1,000,000원</td></tr>
     </tbody>
   </table>
+
+  <figure class="shot">
+    <div class="phone">
+      <div class="bar"><span class="back">‹</span> 등록된 견적 <span class="seg" style="color:#9aa3ae;font-weight:400;">8개의 견적</span></div>
+      <div class="qrow">
+        <div class="badge"><div class="ph"></div><div class="pref">선호</div></div>
+        <div class="qinfo"><div class="qname">김진욱</div><div class="qstar">★ 5.0 <span>(9)</span></div><div class="qspec">2025년식 · 22인승 미니버스</div></div>
+        <div class="qprice">900,000원</div>
+      </div>
+      <div class="qrow">
+        <div class="badge"><div class="ph"></div><div class="pref">선호</div></div>
+        <div class="qinfo"><div class="qname">배재궁</div><div class="qstar">★ 5.0 <span>(99+)</span></div><div class="qspec">2025년식 · 25인승 중형우등</div></div>
+        <div class="qprice">990,000원</div>
+      </div>
+      <div class="qrow">
+        <div class="badge"><div class="ph"></div><div class="pref">선호</div></div>
+        <div class="qinfo"><div class="qname">이수현</div><div class="qstar">★ 4.9 <span>(83)</span></div><div class="qspec">2024년식 · 25인승 미니우등</div></div>
+        <div class="qprice">1,000,000원</div>
+      </div>
+      <div class="qrow">
+        <div class="badge"><div class="ph"></div><div class="pref">선호</div></div>
+        <div class="qinfo"><div class="qname">엄태웅</div><div class="qstar">★ 5.0 <span>(81)</span></div><div class="qspec">2025년식 · 25인승 미니버스</div></div>
+        <div class="qprice">1,100,000원</div>
+      </div>
+      <div class="qrow">
+        <div class="badge"><div class="ph"></div><div class="pref">선호</div></div>
+        <div class="qinfo"><div class="qname">김승철</div><div class="qstar">★ 5.0 <span>(99+)</span></div><div class="qspec">2023년식 · 25인승 중형</div></div>
+        <div class="qprice">—</div>
+      </div>
+    </div>
+    <figcaption>▲ '올버스(all bus)' 앱 견적 목록 (총 8개 견적 중 일부, 25인승 기준)</figcaption>
+  </figure>
 
   <h3>교통편 비교 요약</h3>
   <div class="cards">
